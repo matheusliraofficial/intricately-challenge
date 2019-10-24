@@ -1,25 +1,27 @@
 <template>
-    <div class="container content">
-       <div class="content__breadcumbs">
-           <ul class="row__center--start">
-               <li class="content__breadcumbsItem">HOME</li>
-               <li class="content__breadcumbsItem">{{ routeName }}</li>
-           </ul>
-       </div>
-       <div class="content__container">
-           <aside class="content__menu">
-               <ul class="content__menuContainer">
-                   <router-link to="/">
-                       <li class="content__menuContainerItem" :class="currentPath === '/' ? 'content__menuContainerItem--active' : ''">COMPANY DATA</li>
-                   </router-link>
-                   <li class="content__menuContainerItem">COMPANY TABLE</li>
-                   <router-link to="/company">
-                       <li class="content__menuContainerItem" :class="currentPath === '/company' ? 'content__menuContainerItem--active' : ''">COMPANY PAGE</li>
-                   </router-link>
+    <div :class="currentPath === '/company' ? 'content--company' : 'content' ">
+        <div class="container content__box">
+           <div class="content__breadcumbs">
+               <ul class="row__center--start">
+                   <li class="content__breadcumbsItem">HOME</li>
+                   <li class="content__breadcumbsItem">{{ routeName }}</li>
                </ul>
-           </aside>
-           <router-view/>
-       </div>
+           </div>
+           <div class="content__container">
+               <aside class="content__menu">
+                   <ul class="content__menuContainer">
+                       <router-link to="/">
+                           <li class="content__menuContainerItem" :class="currentPath === '/' ? 'content__menuContainerItem--active' : ''">COMPANY DATA</li>
+                       </router-link>
+                       <li class="content__menuContainerItem">COMPANY TABLE</li>
+                       <router-link to="/company">
+                           <li class="content__menuContainerItem" :class="currentPath === '/company' ? 'content__menuContainerItem--active' : ''">COMPANY PAGE</li>
+                       </router-link>
+                   </ul>
+               </aside>
+               <router-view/>
+           </div>
+        </div>
     </div>
 </template>
 
@@ -39,7 +41,13 @@ export default {
 
 <style scoped lang="scss">
 .content {
-    margin: 22px auto;
+    background-color: white;
+    &--company {
+        background-color: #e7e9f3;
+    }
+    &__box {
+        padding: 22px 0;
+    }
     &__breadcumbs {
         margin-bottom: 22px;
         &Item {

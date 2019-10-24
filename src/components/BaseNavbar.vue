@@ -3,7 +3,7 @@
         <div class="topbarContainer row__center--start">
                 <div class="topbar__logo row__center--center">
                     <router-link to="/">
-                        <img src="../images/logo.png" alt="Intricately" title="Intricately"/>
+                        <img src="../images/logo-pink.png" alt="Intricately" title="Intricately"/>
                     </router-link>
                 </div>
             <div class="topbar__left row__center--start">
@@ -27,7 +27,8 @@
             <div class="row__end--center topbar__right">
                 <div class="row__center--end">
                     <div class="row__center--start">
-                        <img src="../images/group.png" alt="Profile" title="Profile" class="topbar__profile"/>
+                        <img src="../images/default.png" alt="Chrome Extension" title="Chrome Extension" class="topbar__icon"/>
+                        <img src="../images/group.png" alt="Profile" title="Profile" class="topbar__icon"/>
                         <img src="../images/arrow-down.png"/>
                     </div>
                 </div>
@@ -67,6 +68,15 @@
         box-shadow: none;
         margin-right: 10px;
         border-radius: 4px;
+        position: relative;
+        &::before {
+            content: url("../images/search.png");
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            height: 31px;
+            transform: translateY(-50%);
+        }
         &Input {
             height: 40px;
             border: none;
@@ -76,10 +86,6 @@
             font-size: 14px;
             text-transform: capitalize;
             width: 240px;
-            &::before {
-                content: url("../images/search.png");
-                display: block;
-            }
             &:focus{
                 outline: 0;
             }
@@ -111,7 +117,10 @@
             }
         }
     }
-    &__profile {
+    &__icon {
+        &:first-child {
+            margin-right: 16px
+        }
         &:hover {
             opacity: .8;
             cursor: pointer;

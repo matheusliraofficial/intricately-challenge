@@ -1,6 +1,6 @@
 <template>
     <main class="content__main">
-        <p class="content__mainHeader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+        <p class="content__mainDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
         <form class="column__start--start content__form">
             <label for="company-name" class="content__formLabel">COMPANY NAME</label>
             <input type="text" placeholder="e.g. Your Company Name" name="company-name" class="content__formInput">
@@ -29,7 +29,7 @@
          box-shadow: 0 0 2px 0 rgba(220,223,233,.3);
          border-radius: 4px;
          padding: 22px;
-         &Header {
+         &Description {
              font-size: 14px;
              line-height: 22px;
              color: #5e5e5e;
