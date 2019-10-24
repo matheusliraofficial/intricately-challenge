@@ -1,11 +1,11 @@
 <template>
     <div class="topbar">
-        <div class="container row__center--start">
-            <router-link to="/">
+        <div class="topbarContainer row__center--start">
                 <div class="topbar__logo row__center--center">
-                    <img src="../images/logo.png" alt="Intricately" title="Intricately"/>
+                    <router-link to="/">
+                        <img src="../images/logo.png" alt="Intricately" title="Intricately"/>
+                    </router-link>
                 </div>
-            </router-link>
             <div class="topbar__left row__center--start">
                 <div class="row__center">
                     <form class="topbar__search">
