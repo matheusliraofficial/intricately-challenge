@@ -1,0 +1,56 @@
+$theme-variables: (
+        onsurface: #0f1620,
+        surface: #fcfdff,
+        onbackground: #717171,
+        background: #0f1620,
+        secondary: #17283c,
+        onsecondary: #ffffff,
+        primary: #3a487f,
+        onprimary: #ffffff,
+        disabled: #959595,
+        success: #1db058,
+        warning: #f19100,
+        danger: #ff630b,
+);
+$fixed-variables: (
+        btn-color: #ffffff
+);
+$fonts-sizes: (
+        h1: 6rem,
+        h2: 3.75rem,
+        h3: 3rem,
+        h4: 2.125rem,
+        h5: 1.5rem,
+        h6: 1.25rem,
+        s1: 1rem,
+        s2: 0.875rem,
+        t1: 1.25rem,
+        t2: 1rem,
+        t3: 0.875rem,
+        button: 0.875rem,
+        caption: 0.75rem,
+        helper: 11px,
+        overline: 0.687rem
+);
+$margins: (
+        xl: 64px,
+        lg: 32px,
+        md: 16px,
+        sm: 8px,
+        xs: 4px
+);
+$paddings: (
+        xl: 64px,
+        lg: 32px,
+        md: 16px,
+        sm: 8px,
+        xs: 4px
+);
+$opacity-levels: (
+        o1: 1,
+        o2: 0.87,
+        o3: 0.54,
+        o4: 0.38,
+        o5: 0.20,
+        o6: 0.06
+);

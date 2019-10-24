@@ -1,0 +1,167 @@
+$theme-colors: (
+        onsurface: (
+                color: map-get($theme-variables, onsurface)
+        ),
+        surface: (
+                color: map-get($theme-variables, surface)
+        ),
+        onbackground: (
+                color: map-get($theme-variables, onbackground)
+        ),
+        background: (
+                color: map-get($theme-variables, background)
+        ),
+        secondary: (
+                color: map-get($theme-variables, secondary)
+        ),
+        onsecondary: (
+                color: map-get($theme-variables, onsecondary)
+        ),
+        primary: (
+                color: map-get($theme-variables, primary)
+        ),
+        onprimary: (
+                color: map-get($theme-variables, onprimary)
+        ),
+        danger: (
+                color: map-get($theme-variables, danger),
+        ),
+        warning: (
+                color: map-get($theme-variables, warning),
+        ),
+        success: (
+                color: map-get($theme-variables, success),
+        ),
+);
+
+$theme-button: (
+        onsurface: (
+                font: map-get($theme-variables, surface),
+                color: map-get($theme-variables, onsurface)
+        ),
+        surface: (
+                font: map-get($theme-variables, onsurface),
+                color: map-get($theme-variables, surface)
+        ),
+        secondary: (
+                font: map-get($theme-variables, onsecondary),
+                color: map-get($theme-variables, secondary)
+        ),
+        onsecondary: (
+                font: map-get($theme-variables, secondary),
+                color: map-get($theme-variables, onsecondary)
+        ),
+        primary: (
+                font: map-get($theme-variables, onprimary),
+                color: map-get($theme-variables, primary)
+        ),
+        danger: (
+                font: map-get($theme-variables, onprimary),
+                color: map-get($theme-variables, danger)
+        ),
+        warning: (
+                font: map-get($theme-variables, onprimary),
+                color: map-get($theme-variables, warning)
+        ),
+        success: (
+                font: map-get($theme-variables, onprimary),
+                color: map-get($theme-variables, success)
+        ),
+);
+
+@mixin set-class($class, $prop, $color) {
+  .#{$class} {
+    #{$prop}: $color;
+  }
+}
+@mixin flex($flex, $direction, $align: 'center', $justify: 'flex-start') {
+  display: $flex;
+  align-items: $align;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
+
+@mixin set-opacity-classes() {
+  @include pass-opacity-classes();
+}
+
+@mixin pass-opacity-classes() {
+  @each $key, $value in $opacity-levels {
+    .bl-#{$key}{
+      opacity: $value;
+    }
+    @each $colorProp, $color in $theme-variables {
+      /* Set color-opacity for icons */
+      .bl-icon.bl-#{$colorProp}-#{$key}{
+        color: rgba($color, $value);
+        background-color: rgba($color, $value);
+      }
+
+      /* Set color classes for icons (with background-color)*/
+      .bl-icon.bl-#{$colorProp}{
+        color: rgba($color, $value);
+        background-color: $color;
+      }
+    }
+  }
+}
+
+@mixin m($space) {
+  margin: bsize($space);
+}
+
+@mixin mt($space) {
+  margin-top: bsize($space);
+}
+
+@mixin mb($space) {
+  margin-bottom: bsize($space);
+}
+
+@mixin ml($space) {
+  margin-left: bsize($space);
+}
+
+@mixin mr($space) {
+  margin-right: bsize($space);
+}
+
+@mixin p($space) {
+  padding: bsize($space);
+}
+
+@mixin pt($space) {
+  padding-top: bsize($space);
+}
+
+@mixin pb($space) {
+  padding-bottom: bsize($space);
+}
+
+@mixin pl($space) {
+  padding-left: bsize($space);
+}
+
+@mixin pr($space) {
+  padding-right: bsize($space);
+}
+
+@mixin mx($space) {
+  @include ml($space);
+  @include mr($space);
+}
+
+@mixin my($space) {
+  @include mt($space);
+  @include mb($space);
+}
+
+@mixin px($space) {
+  @include pl($space);
+  @include pr($space);
+}
+
+@mixin py($space) {
+  @include pt($space);
+  @include pb($space);
+}

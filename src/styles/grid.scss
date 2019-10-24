@@ -1,0 +1,248 @@
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  @media (min-width: 576px) {
+    max-width: 640px
+  }
+  @media (min-width: 768px) {
+    max-width: 820px
+  }
+  @media (min-width: 992px) {
+    max-width: 1060px
+  }
+  @media (min-width: 1200px) {
+      max-width: 1240px
+  }
+}
+
+.row {
+  @include flex(flex, row);
+  &__start {
+    @include flex(flex, row, flex-start);
+    &--start {
+      @include flex(flex, row, flex-start, flex-start);
+    }
+    &--center {
+      @include flex(flex, row, flex-start, center);
+    }
+    &--end {
+      @include flex(flex, row, flex-start, flex-end);
+    }
+    &--between {
+      @include flex(flex, row, flex-start, space-between);
+    }
+    &--around {
+      @include flex(flex, row, flex-start, space-around);
+    }
+  }
+  &__center {
+    @include flex(flex, row, center);
+    &--start {
+      @include flex(flex, row, center, flex-start);
+    }
+    &--center {
+      @include flex(flex, row, center, center);
+    }
+    &--end {
+      @include flex(flex, row, center, flex-end);
+    }
+    &--between {
+      @include flex(flex, row, center, space-between);
+    }
+    &--around {
+      @include flex(flex, row, center, space-around);
+    }
+  }
+  &__end {
+    @include flex(flex, row, flex-end);
+    &--start {
+      @include flex(flex, row, flex-end, flex-start);
+    }
+    &--center {
+      @include flex(flex, row, flex-end, center);
+    }
+    &--end {
+      @include flex(flex, row, flex-end, flex-end);
+    }
+    &--between {
+      @include flex(flex, row, flex-end, space-between);
+    }
+    &--around {
+      @include flex(flex, row, flex-end, space-around);
+    }
+  }
+}
+.row-reverse {
+  @include flex(flex, row-reverse);
+  &__start {
+    @include flex(flex, row-reverse, flex-start);
+    &--start {
+      @include flex(flex, row-reverse, flex-start, flex-start);
+    }
+    &--center {
+      @include flex(flex, row-reverse, flex-start, center);
+    }
+    &--end {
+      @include flex(flex, row-reverse, flex-start, flex-end);
+    }
+    &--between {
+      @include flex(flex, row-reverse, flex-start, space-between);
+    }
+    &--around {
+      @include flex(flex, row-reverse, flex-start, space-around);
+    }
+  }
+  &__center {
+    @include flex(flex, row-reverse, center);
+    &--start {
+      @include flex(flex, row-reverse, center, flex-start);
+    }
+    &--center {
+      @include flex(flex, row-reverse, center, center);
+    }
+    &--end {
+      @include flex(flex, row-reverse, center, flex-end);
+    }
+    &--between {
+      @include flex(flex, row-reverse, center, space-between);
+    }
+    &--around {
+      @include flex(flex, row-reverse, center, space-around);
+    }
+  }
+  &__end {
+    @include flex(flex, row-reverse, flex-end);
+    &--start {
+      @include flex(flex, row-reverse, flex-end, flex-start);
+    }
+    &--center {
+      @include flex(flex, row-reverse, flex-end, center);
+    }
+    &--end {
+      @include flex(flex, row-reverse, flex-end, flex-end);
+    }
+    &--between {
+      @include flex(flex, row-reverse, flex-end, space-between);
+    }
+    &--around {
+      @include flex(flex, row-reverse, flex-end, space-around);
+    }
+  }
+}
+.column {
+  @include flex(flex, column);
+  &__start {
+    @include flex(flex, column, flex-start);
+    &--start {
+      @include flex(flex, column, flex-start, flex-start);
+    }
+    &--center {
+      @include flex(flex, column, flex-start, center);
+    }
+    &--end {
+      @include flex(flex, column, flex-start, flex-end);
+    }
+    &--between {
+      @include flex(flex, column, flex-start, space-between);
+    }
+    &--around {
+      @include flex(flex, column, flex-start, space-around);
+    }
+  }
+  &__center {
+    @include flex(flex, column, center);
+    &--start {
+      @include flex(flex, column, center, flex-start);
+    }
+    &--center {
+      @include flex(flex, column, center, center);
+    }
+    &--end {
+      @include flex(flex, column, center, flex-end);
+    }
+    &--between {
+      @include flex(flex, column, center, space-between);
+    }
+    &--around {
+      @include flex(flex, column, center, space-around);
+    }
+  }
+  &__end {
+    @include flex(flex, column, flex-end);
+    &--start {
+      @include flex(flex, column, flex-end, flex-start);
+    }
+    &--center {
+      @include flex(flex, column, flex-end, center);
+    }
+    &--end {
+      @include flex(flex, column, flex-end, flex-end);
+    }
+    &--between {
+      @include flex(flex, column, flex-end, space-between);
+    }
+    &--around {
+      @include flex(flex, column, flex-end, space-around);
+    }
+  }
+}
+.column-reverse {
+  @include flex(flex, column-reverse);
+  &__start {
+    @include flex(flex, column-reverse, flex-start);
+    &--start {
+      @include flex(flex, column-reverse, flex-start, flex-start);
+    }
+    &--center {
+      @include flex(flex, column-reverse, flex-start, center);
+    }
+    &--end {
+      @include flex(flex, column-reverse, flex-start, flex-end);
+    }
+    &--between {
+      @include flex(flex, column-reverse, flex-start, space-between);
+    }
+    &--around {
+      @include flex(flex, column-reverse, flex-start, space-around);
+    }
+  }
+  &__center {
+    @include flex(flex, column-reverse, center);
+    &--start {
+      @include flex(flex, column-reverse, center, flex-start);
+    }
+    &--center {
+      @include flex(flex, column-reverse, center, center);
+    }
+    &--end {
+      @include flex(flex, column-reverse, center, flex-end);
+    }
+    &--between {
+      @include flex(flex, column-reverse, center, space-between);
+    }
+    &--around {
+      @include flex(flex, column-reverse, center, space-around);
+    }
+  }
+  &__end {
+    @include flex(flex, column-reverse, flex-end);
+    &--start {
+      @include flex(flex, column-reverse, flex-end, flex-start);
+    }
+    &--center {
+      @include flex(flex, column-reverse, flex-end, center);
+    }
+    &--end {
+      @include flex(flex, column-reverse, flex-end, flex-end);
+    }
+    &--between {
+      @include flex(flex, column-reverse, flex-end, space-between);
+    }
+    &--around {
+      @include flex(flex, column-reverse, flex-end, space-around);
+    }
+  }
+}
