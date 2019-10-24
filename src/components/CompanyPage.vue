@@ -111,69 +111,69 @@ export default {
         width: 64px;
         height: 64px;
         border-radius: 6px;
-        background-color: #fff;
+        background-color: white;
         -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
         box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-        margin-right: 18px;
+        margin-right: get-margin(m5);
     }
     &__info {
         height: 64px;
         &Title {
-            font-size: 32px;
+            font-size: get-size(title);
             line-height: 40px;
-            color: #333;
+            color: get-color(infoColor);
         }
         &Address {
-            color: #666;
-            font-size: 13px;
-            margin-left: 4px;
+            color: get-color(addressColor);
+            font-size: get-size(t2);
+            margin-left: get-margin(m1);
         }
     }
     &__description {
-        font-size: 14px;
+        font-size: get-size(t3);
         line-height: 22px;
-        color: #5e5e5e;
-        margin: 25px 0
+        color: get-color(description);
+        margin: get-margin(m6) 0
     }
     &__data {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 14px;
+        grid-gap: get-margin(m4);
         &List {
-            border: 1px solid #ced1e0;
+            border: 1px solid get-color(main);
             border-radius: 4px;
             background-color: white;
             &:not(:first-child) {
-                margin-top: 14px
+                margin-top: get-margin(m4)
             }
             &Item {
-                font-size: 12px;
+                font-size: get-size(t1);
                 font-weight: 500;
                 font-style: normal;
                 line-height: 1.9;
-                color: #505050;
-                padding: 10px 16px;
+                color: get-color(listItemColor);
+                padding: get-padding(p3) get-padding(p4);
                 width: 100%;
                 box-sizing: border-box;
                 &:first-child{
                     font-weight: bold;
                 }
                 &:not(:first-child){
-                    border-top: 1px solid #ced1e0;
+                    border-top: 1px solid get-color(main);
                 }
                 &--grid {
                     display: grid;
                     grid-template-columns: 3fr 1fr 4fr;
                 }
                 &Inner:not(:first-child) {
-                    margin-top: 9px
+                    margin-top: get-margin(m3)
                 }
                 &Logo {
-                    margin-right: 8px;
+                    margin-right: get-margin(m3);
                 }
                 &Time {
                     font-weight: bold;
-                    color: #bbbbbb
+                    color: get-color(label)
                 }
             }
         }

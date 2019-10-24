@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // Components
-import CompanyData from "./components/CompanyData.vue"
-import CompanyPage from "./components/CompanyPage.vue"
+import CompanyData from "Components/CompanyData.vue"
+import CompanyPage from "Components/CompanyPage.vue"
 
 Vue.use(VueRouter)
 
-const router = new VueRouter({
+const index = new VueRouter({
     routes: [
         {
             name: 'COMPANY DATA',
@@ -22,4 +22,4 @@ const router = new VueRouter({
     mode: 'history'
 })
 
-export default router
+export default index

@@ -43,20 +43,20 @@ export default {
 .content {
     background-color: white;
     &--company {
-        background-color: #e7e9f3;
+        background-color: get-color(companyBg);
     }
     &__box {
-        padding: 22px 0;
+        padding: get-padding(p5) 0;
     }
     &__breadcumbs {
-        margin-bottom: 22px;
+        margin-bottom: get-margin(m6);
         &Item {
-            color: #7e7e7e;
-            font-size: 12px;
+            color: get-color(breadColor);
+            font-size: get-size(t1);
             &:not(:first-child)::before {
                 content: '/';
-                padding: 0 5px;
-                color: #ccc
+                padding: 0 get-padding(p1);
+                color: get-color(separatorColor)
             }
         }
     }
@@ -68,20 +68,20 @@ export default {
     &__menu {
         &Container {
             &Item {
-                padding: 22px 0 22px 22px;
-                width: calc(100% - 24px);
-                background-color: #fff;
+                padding: get-padding(p5) 0 get-padding(p5) get-padding(p5);
+                width: calc(100% - #{get-padding(p5)});
+                background-color: white;
                 border: 1px solid #ced1e0;
                 -webkit-box-shadow: 0 0 2px 0 rgba(220,223,233,.3);
                 box-shadow: 0 0 2px 0 rgba(220,223,233,.3);
-                font-size: 14px;
+                font-size: get-size(t3);
                 font-weight: bold;
                 text-decoration: none !important;
-                color: #68749d;
+                color: get-color(tabItemColor);
                 &--active {
-                    border-left: 3px solid #344375;
-                    background-color: #fafbfc;
-                    color: #5e5e5e;
+                    border-left: 3px solid get-color(tabItemActiveBorderColor);
+                    background-color: get-color(tabItemActiveBgColor);
+                    color: get-color(tabItemActiveColor);
                     padding-left: 20px
                 }
             }

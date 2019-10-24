@@ -15,44 +15,44 @@
 </template>
 
 <script>
-    export default {
-        name: "CompanyData"
-    }
+export default {
+    name: "CompanyData"
+}
 </script>
 
 <style scoped lang="scss">
 .content {
     &__main {
-         background-color: #fff;
-         border: 1px solid #ced1e0;
+         background-color: white;
+         border: 1px solid get-color(main);
          -webkit-box-shadow: 0 0 2px 0 rgba(220,223,233,.3);
          box-shadow: 0 0 2px 0 rgba(220,223,233,.3);
          border-radius: 4px;
-         padding: 22px;
+         padding: get-padding(p5);
          &Description {
-             font-size: 14px;
+             font-size: get-size(t3);
              line-height: 22px;
-             color: #5e5e5e;
+             color: get-color(description);
          }
      }
     &__form {
         &Label {
-            color: #bbbbbb;
-            font-size: 12px;
-            margin: 22px 0 6px;
+            color: get-color(label);
+            font-size: get-size(t1);
+            margin: get-margin(m5) 0 get-margin(m2);
         }
         &Input, &Textarea {
-            border: 1px solid #ced2e0;
+            border: 1px solid get-color(input);
             border-radius: 4px;
             -webkit-box-shadow: 0 2px 4px 0 rgba(184,184,184,.2);
             box-shadow: 0 2px 4px 0 rgba(184,184,184,.2);
-            padding: 8px;
+            padding: get-padding(p2);
             outline: 0;
             resize: none;
             width: 100%;
             box-sizing: border-box;
             &::placeholder {
-                color: #bbbbbb;
+                color: get-color(label);
             }
         }
         &Input {

@@ -38,14 +38,16 @@
 </template>
 
 <script>
-    export default {
-        name: "BaseNavbar"
-    }
+export default {
+    name: "BaseNavbar"
+}
 </script>
 
 <style scoped lang="scss">
 .topbar {
-    background-color: #3a487f;
+    background-color: get-color(primary);
+    position: sticky;
+    top: 0px;
     &__left {
         max-width: 980px;
         width: 100%;
@@ -57,16 +59,16 @@
     &__logo {
         max-width: 120px;
         width: 100%;
-        padding: 0 8px;
+        padding: 0 get-padding(p2);
     }
     &__search {
         width: 100%;
-        background-color: #1f2b5a;
+        background-color: get-color(search);
         border: none;
-        color: #fff;
+        color: white;
         -webkit-box-shadow: none;
         box-shadow: none;
-        margin-right: 10px;
+        margin-right: get-margin(m3);
         border-radius: 4px;
         position: relative;
         &::before {
@@ -81,9 +83,9 @@
             height: 40px;
             border: none;
             background-color: transparent;
-            padding-left: 40px;
+            padding-left: get-padding(p8);
             color: white;
-            font-size: 14px;
+            font-size: get-size(t3);
             text-transform: capitalize;
             width: 240px;
             &:focus{
@@ -96,21 +98,21 @@
     }
     &__smartlist {
         &Text {
-            margin-right: 9px;
+            margin-right: get-margin(m3);
             color: white;
-            font-size: 13px;
+            font-size: get-size(t2);
             text-transform: uppercase;
         }
         &Button {
-            margin-right: 9px;
-            font-size: 13px;
+            margin-right: get-margin(m3);
+            font-size: get-size(t2);
             font-weight: 500;
             line-height: 24px;
-            padding: 8px 16px;
+            padding: get-padding(p2) get-padding(p4);
             text-transform: uppercase;
             white-space: nowrap;
             color: white;
-            background-color: #5d699a;
+            background-color: get-color(button);
             border-radius: 4px;
             &:hover {
                 opacity: .8;
@@ -119,7 +121,7 @@
     }
     &__icon {
         &:first-child {
-            margin-right: 16px
+            margin-right: get-margin(m5)
         }
         &:hover {
             opacity: .8;
@@ -129,8 +131,8 @@
     &__menu {
         &Primary {
             &Item {
-                margin: 0 16px;
-                font-size: 13px;
+                margin: 0 get-margin(m5);
+                font-size: get-size(t2);
                 height: 72px;
                 color: white;
                 text-transform: uppercase;

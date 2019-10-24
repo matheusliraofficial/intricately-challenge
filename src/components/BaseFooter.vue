@@ -31,38 +31,38 @@
 </template>
 
 <script>
-    export default {
-        name: "BaseFooter"
-    }
+export default {
+    name: "BaseFooter"
+}
 </script>
 
 <style scoped lang="scss">
 .footer {
-    background-color: #f3f3f3;
-    padding: 26px 32px 21px;
+    background-color: get-color(footer);
+    padding: get-padding(p6) get-padding(p7) get-padding(p5);
     &__links {
         &Item{
             display: block;
-            font-size: 12px;
+            font-size: get-size(t1);
             line-height: 16px;
-            color: #5d679a;
-            padding: 0 8px;
+            color: get-color(button);
+            padding: 0 get-padding(p2);
         }
         &Item:not(:last-child){
-            border-right: 1px solid #5d679a;
+            border-right: 1px solid get-color(button);
         }
     }
     &__infos {
-        margin-top: 18px;
+        margin-top: get-margin(m5);
         &Copy {
-            font-size: 12px;
+            font-size: get-size(t1);
             font-weight: 300;
             color: #aaa;
-            margin-left: 8px;
+            margin-left: get-margin(m3);
         }
         &Social {
             &Item {
-                margin: 0 8px
+                margin: 0 get-margin(m3)
             }
         }
     }

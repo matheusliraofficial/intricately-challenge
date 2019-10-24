@@ -13,29 +13,3 @@
 @function get-padding($padding){
   @return map-get($paddings , $padding);
 }
-
-@function get-fixed-color($color) {
-  @return map-get($fixed-variables , $color);
-}
-
-@function get-opacity($opacity) {
-  @return map-get($opacity-levels, $opacity)
-}
-
-@function map-get-or-key($map, $key) {
-  @if map-has-key($map, $key) or map-has-key($map, -$key) {
-    @if $key != 'auto' and type-of($key) == 'number' and $key < 0 {
-      @return 0 - map-get($map, -$key);
-    } @else {
-      @return map-get($map, $key);
-    }
-  } @else if type-of($key) == 'string' {
-    @return unquote($key);
-  } @else {
-    @return $key;
-  }
-}
-
-@function bsize($key) {
-  @return map-get-or-key($spacers, $key);
-}

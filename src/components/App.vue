@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import BaseNavbar from "./BaseNavbar.vue"
-import BaseContent from "./BaseContent.vue"
-import BaseFooter from "./BaseFooter.vue"
+import BaseNavbar from "Components/BaseNavbar.vue"
+import BaseContent from "Components/BaseContent.vue"
+import BaseFooter from "Components/BaseFooter.vue"
 
 export default {
   name: "App",
@@ -20,3 +20,4 @@ export default {
   }
 }
 </script>
+

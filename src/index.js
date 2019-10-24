@@ -1,10 +1,9 @@
-import './styles/main.scss'
 import Vue from 'vue'
-import App from './components/App.vue'
-import router from './router'
+import App from 'Components/App.vue'
+import router from 'Router'
 
 new Vue({
-  router,
+  router: router,
   render: createElement => createElement(App),
   el: '#app'
 });
