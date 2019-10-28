@@ -1,0 +1,8 @@
+export const SET_MODAL = 'SET_MODAL'
+export const SET_INPUT = 'SET_INPUT'
+export const SET_TEXT = 'SET_TEXT'
+export const SET_CURRENCY = 'SET_CURRENCY'
+export const SET_COMPARE_MIN = 'SET_COMPARE_MIN'
+export const SET_COMPARE_MAX = 'SET_COMPARE_MAX'
+export const SET_NOTE = 'SET_NOTE'
+export const SET_ERROR = 'SET_ERROR'

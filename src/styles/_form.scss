@@ -1,0 +1,66 @@
+.form {
+  width: 100%;
+  &__label {
+    color: get-color(label);
+    font-size: get-size(t1);
+    margin: get-margin(m5) 0 get-margin(m2);
+    &--error {
+      color: darkred
+    }
+  }
+  &__boxInput, &__textarea {
+    border: 1px solid get-color(input);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(184,184,184,.2);
+    box-shadow: 0 2px 4px 0 rgba(184,184,184,.2);
+    padding: get-padding(p2);
+    outline: 0;
+    resize: none;
+    width: 100%;
+    box-sizing: border-box;
+    &--error {
+      border-color: darkred;
+      color: darkred;
+      &::placeholder {
+        color: darkred !important;
+      }
+    }
+    &::placeholder {
+      color: get-color(label);
+    }
+  }
+  &__container, &__box {
+    width: 100%;
+  }
+  &__box {
+    display: grid;
+    &--twoColumns {
+      grid-template-columns: 1fr 1fr;
+      max-width: 280px;
+      > .form__boxInput:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      > .form__boxInput:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: 0px;
+      }
+    }
+    &Input {
+      max-width: 280px;
+    }
+  }
+  &__error {
+    margin-top: get-margin(m1);
+    font-size: get-size(t1);
+    color: darkred
+  }
+  &__button {
+    background-color: get-color(button);
+    text-transform: uppercase;
+    color: white;
+    padding: get-padding(p1) get-padding(p6);
+    border-radius: 4px;
+  }
+}
