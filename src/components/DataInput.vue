@@ -69,7 +69,6 @@
             rows="10"
             :placeholder="placeholder"
             class="form__textarea"
-            ref="modal"
             @click="setModal"
             @input="updateNote"
         >
