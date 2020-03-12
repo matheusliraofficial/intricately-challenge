@@ -45,7 +45,6 @@
             >
             <input
                 v-if="type === 'compare'"
-                class="form__boxInput"
                 :name="inputName"
                 :id="`${inputName}-1`"
                 :class="['form__boxInput', inputClass, { 'form__boxInput--error': getErrors('compare')} ]"
