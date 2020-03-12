@@ -1,8 +1,16 @@
 <template>
-    <div class="modal row__center--center">
+    <div>
+        <div class="modal" @click="setModal">
+        </div>
         <div class="modal__content row__center--center">
             <form class="form column__center--center">
-                <DataInput placeholder="e.g. Good Tech Company" type="modal" inputName="additional-notes" label="ADDITIONAL NOTES" labelClass="modal__contentTitle"/>
+                <DataInput
+                     placeholder="e.g. Good Tech Company"
+                     type="modal"
+                     inputName="additional-notes"
+                     label="ADDITIONAL NOTES"
+                     labelClass="modal__contentTitle"
+                />
                 <div class="modal__contentSubmit row__center--end">
                     <button @click="updateModal" class="form__button">Save</button>
                 </div>
@@ -45,7 +53,11 @@ export default {
     top: 0;
     &__content {
         background-color: white;
-        position: relative;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
         min-width: 40vw;
         padding:  get-padding(p2) get-padding(p6) get-padding(p6);
         border-radius: 4px;
