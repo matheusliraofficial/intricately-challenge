@@ -94,14 +94,10 @@ export default {
     },
     computed: {
         ...mapState([
-            'inputErrors',
-            'note',
             'valueText',
             'valueCurrency',
             'valueCompareMin',
             'valueCompareMax',
-            'valueNotes',
-            'isInputActive'
         ]),
         ...mapGetters({
             getText: GET_TEXT,
