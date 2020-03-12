@@ -2,12 +2,11 @@
     <div class="form__container column__start--center">
         <label
             :for="inputName"
-            class="form__label"
-            :class="`${labelClass} ${getErrors(type) ? 'form__label--error' : ''}`
-        ">
+            :class="['form__label', labelClass, { 'form__label--error': getErrors(type) }]"
+        >
             {{ label }}
         </label>
-        <div class="form__box" :class="type === 'compare' ? 'form__box--twoColumns' : ''">
+        <div :class="['form__box', { 'form__box--twoColumns': type === 'compare' }]">
             <input
                 v-if="type === 'text'"
                 type="text"
@@ -15,8 +14,7 @@
                 :name="inputName"
                 :id="inputName"
                 :value="getText"
-                class="form__boxInput"
-                :class="`${inputClass} ${getErrors('text') ? 'form__boxInput--error' : ''}`"
+                :class="['form__boxInput', inputClass, { 'form__boxInput--error': getErrors('text')} ]"
                 @input="updateText"
                 @focus="setInput('text')"
                 @blur="validateInput"
@@ -28,8 +26,7 @@
                 :name="inputName"
                 :id="inputName"
                 :value="getCurrency"
-                class="form__boxInput"
-                :class="`${inputClass} ${getErrors('currency') ? 'form__boxInput--error' : ''}`"
+                :class="['form__boxInput', inputClass, { 'form__boxInput--error': getErrors('currency')} ]"
                 @input="updateCurrency"
                 @focus="setInput('currency')"
                 @blur="validateInput"
@@ -40,8 +37,7 @@
                 :placeholder="placeholder"
                 :name="inputName"
                 :id="`${inputName}-0`"
-                class="form__boxInput"
-                :class="`${inputClass} ${getErrors('compare') ? 'form__boxInput--error' : ''}`"
+                :class="['form__boxInput', inputClass, { 'form__boxInput--error': getErrors('compare')} ]"
                 :value="getCompareMin"
                 @input="updateCompareMin"
                 @focus="setInput('compare')"
@@ -52,7 +48,7 @@
                 class="form__boxInput"
                 :name="inputName"
                 :id="`${inputName}-1`"
-                :class="`${inputClass} ${getErrors('compare') ? 'form__boxInput--error' : ''}`"
+                :class="['form__boxInput', inputClass, { 'form__boxInput--error': getErrors('compare')} ]"
                 type="text"
                 :value="getCompareMax"
                 @input="updateCompareMax"

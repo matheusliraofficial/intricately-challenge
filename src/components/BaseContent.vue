@@ -11,11 +11,11 @@
                <aside class="content__menu">
                    <ul class="content__menuContainer">
                        <router-link to="/">
-                           <li class="content__menuContainerItem" :class="currentPath === '/' ? 'content__menuContainerItem--active' : ''">COMPANY DATA</li>
+                           <li class="content__menuContainerItem" :class="{ 'content__menuContainerItem--active': currentPath === '/' }">COMPANY DATA</li>
                        </router-link>
                        <li class="content__menuContainerItem">COMPANY TABLE</li>
                        <router-link to="/company">
-                           <li class="content__menuContainerItem" :class="currentPath === '/company' ? 'content__menuContainerItem--active' : ''">COMPANY PAGE</li>
+                           <li class="content__menuContainerItem" :class="{ 'content__menuContainerItem--active': currentPath === '/company' }">COMPANY PAGE</li>
                        </router-link>
                    </ul>
                </aside>
