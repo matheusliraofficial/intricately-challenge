@@ -22,37 +22,37 @@
                     <li class="company__dataListItem company__dataListItem--grid row__center--start">
                         <div class="column__start--start company__dataListItemTime">8 days ago</div>
                         <div class="column__start--start"><img src="../images/video-platform.png"/></div>
-                        <p><a href="#">Cloud Ochestration</a> replaced Microsoft on <a href="#">1 property</a></p>
+                        <p><a href="#">Cloud Ochestration</a> replaced <span class="company__dataListItemText--line">Microsoft</span> on <a href="#">1 property</a></p>
                     </li>
                     <li class="company__dataListItem company__dataListItem--grid row__center--start">
                         <div class="column__start--start company__dataListItemTime">10 days ago</div>
                         <div class="column__start--start"><img src="../images/content-delivery.png"/></div>
-                        <p><a href="#">Express Scripts</a> replaced Microsoft on <a href="#">1 property</a></p>
+                        <p><a href="#">Express Scripts</a> replaced <span class="company__dataListItemText--line">Microsoft</span> on <a href="#">1 property</a></p>
                     </li>
                     <li class="company__dataListItem company__dataListItem--grid row__center--start">
                         <div class="column__start--start company__dataListItemTime">12 days ago</div>
                         <div class="column__start--start"><img src="../images/waf-d-dos-security.png"/></div>
-                        <p><a href="#">Kaiser Permanente</a> replaced Microsoft on <a href="#">1 property</a></p>
+                        <p><a href="#">Kaiser Permanente</a> replaced <span class="company__dataListItemText--line">Microsoft</span> on <a href="#">1 property</a></p>
                     </li>
                     <li class="company__dataListItem company__dataListItem--grid row__center--start">
                         <div class="column__start--start company__dataListItemTime">14 days ago</div>
                         <div class="column__start--start"><img src="../images/traffic-management.png"/></div>
-                        <p><a href="#">Molina Healthcare</a> replaced Microsoft on <a href="#">1 property</a></p>
+                        <p><a href="#">Molina Healthcare</a> replaced <span class="company__dataListItemText--line">Microsoft</span> on <a href="#">1 property</a></p>
                     </li>
                     <li class="company__dataListItem company__dataListItem--grid row__center--start">
                         <div class="column__start--start company__dataListItemTime">15 days ago</div>
                         <div class="column__start--start"><img src="../images/dns.png"/></div>
-                        <p><a href="#">Express Scripts</a> replaced Microsoft on <a href="#">1 property</a></p>
+                        <p><a href="#">Express Scripts</a> replaced <span class="company__dataListItemText--line">Microsoft</span> on <a href="#">1 property</a></p>
                     </li>
                     <li class="company__dataListItem company__dataListItem--grid row__center--start">
                         <div class="column__start--start company__dataListItemTime">16 days ago</div>
                         <div class="column__start--start"><img src="../images/performance-monitoring.png"/></div>
-                        <p><a href="#">Kaiser Permanente</a> replaced Microsoft on <a href="#">1 property</a></p>
+                        <p><a href="#">Kaiser Permanente</a> replaced <span class="company__dataListItemText--line">Microsoft</span> on <a href="#">1 property</a></p>
                     </li>
                     <li class="company__dataListItem company__dataListItem--grid row__center--start">
                         <div class="column__start--start company__dataListItemTime">17 days ago</div>
                         <div class="column__start--start"><img src="../images/saas.png"/></div>
-                        <p><a href="#">Molina Healthcare</a> replaced Microsoft on <a href="#">1 property</a></p>
+                        <p><a href="#">Molina Healthcare</a> replaced <span class="company__dataListItemText--line">Microsoft</span> on <a href="#">1 property</a></p>
                     </li>
                     <li class="company__dataListItem company__dataListItem--grid row__center--start">
                         <div class="column__start--start company__dataListItemTime">18 days ago</div>
@@ -167,6 +167,9 @@ export default {
                 }
                 &Inner:not(:first-child) {
                     margin-top: get-margin(m3)
+                }
+                &Text--line {
+                    text-decoration: line-through;
                 }
                 &Logo {
                     margin-right: get-margin(m3);
