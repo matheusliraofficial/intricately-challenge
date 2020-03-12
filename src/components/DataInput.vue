@@ -197,6 +197,8 @@ export default {
                     break
                 case 'compare':
                     parseInt(this.valueCompareMin) > parseInt(this.valueCompareMax)
+                        || this.valueCompareMin === ''
+                        || this.valueCompareMax === ''
                         ? this.setError({type: this.type, value: this.error})
                         : this.setError({type: this.type, value: ''})
                     break
