@@ -6,45 +6,24 @@
         >
             {{ label }}
         </label>
-        <div :class="['form__box', { 'form__box--twoColumns': type === 'compare' }]">
+        <div
+            :class="['form__box', { 'form__box--twoColumns': type === 'compare' }]"
+            v-if="type === 'text' || type === 'currency' || type === 'compare'"
+        >
             <input
-                v-if="type === 'text'"
-                type="text"
-                :placeholder="placeholder"
-                :name="inputName"
-                :id="inputName"
-                :value="getText"
-                :class="['form__boxInput', inputClass, { 'form__boxInput--error': getErrors('text')} ]"
-                @input="updateText"
-                @focus="setInput('text')"
-                @blur="validateInput"
-            >
-            <input
-                v-if="type === 'currency'"
-                type="text"
-                :placeholder="placeholder"
-                :name="inputName"
-                :id="inputName"
-                :value="getCurrency"
-                :class="['form__boxInput', inputClass, { 'form__boxInput--error': getErrors('currency')} ]"
-                @input="updateCurrency"
-                @focus="setInput('currency')"
-                @blur="validateInput"
-            >
-            <input
-                v-if="type === 'compare'"
                 type="text"
                 :placeholder="placeholder"
                 :name="inputName"
                 :id="`${inputName}-0`"
-                :class="['form__boxInput', inputClass, { 'form__boxInput--error': getErrors('compare')} ]"
-                :value="getCompareMin"
-                @input="updateCompareMin"
-                @focus="setInput('compare')"
+                :value="getValue()"
+                :class="['form__boxInput', inputClass, { 'form__boxInput--error': getErrors(type)} ]"
+                @input="updateInput"
+                @focus="setInput(type)"
                 @blur="validateInput"
             >
             <input
                 v-if="type === 'compare'"
+                :placeholder="placeholder"
                 :name="inputName"
                 :id="`${inputName}-1`"
                 :class="['form__boxInput', inputClass, { 'form__boxInput--error': getErrors('compare')} ]"
@@ -53,30 +32,18 @@
                 @input="updateCompareMax"
                 @focus="setInput('compare')"
                 @blur="validateInput"
-                :placeholder="placeholder"
             />
         </div>
         <textarea
-            v-if="type === 'textarea'"
+            v-if="type === 'textarea' || type === 'modal'"
             :name="inputName"
             :id="inputName"
             :value="getNote"
             rows="10"
             :placeholder="placeholder"
             class="form__textarea"
-            @click="setModal"
-            @input="updateNote"
-        >
-        </textarea>
-        <textarea
-            v-if="type === 'modal'"
-            :name="inputName"
-            :id="inputName"
-            :value="getNote"
-            rows="10"
-            :placeholder="placeholder"
-            class="form__textarea"
-            @input="updateNote"
+            @click="type === 'textarea' ? setModal() : null"
+            @input="updateInput"
         >
         </textarea>
         <p v-if="getErrors(type)" class="form__error">{{ getErrors(type) }}</p>
@@ -157,20 +124,35 @@ export default {
             setInput: SET_INPUT,
             setNote: SET_NOTE
         }),
-        updateText(e) {
-            this.setText(e.target.value)
-        },
-        updateNote(e) {
-            this.setNote(e.target.value)
-        },
-        updateCurrency(e) {
-            this.setCurrency(this.toNormal(e.target.value))
-        },
-        updateCompareMin(e) {
-            this.setCompareMin(this.toNormal(e.target.value))
+        updateInput(e) {
+            switch(this.type) {
+                case 'text':
+                    this.setText(e.target.value)
+                    break
+                case 'currency':
+                    this.setCurrency(this.toNormal(e.target.value))
+                    break
+                case 'compare':
+                    this.setCompareMin(this.toNormal(e.target.value))
+                    break
+                case 'modal':
+                case 'textarea':
+                    this.setNote(e.target.value)
+                    break
+            }
         },
         updateCompareMax(e) {
             this.setCompareMax(this.toNormal(e.target.value))
+        },
+        getValue() {
+          switch(this.type) {
+              case 'text':
+                  return this.getText
+              case 'currency':
+                  return this.getCurrency
+              case 'compare':
+                  return this.getCompareMin
+          }
         },
         toNormal(value) {
             let newValue = value.replace(/[^\d\.]/g, "")
