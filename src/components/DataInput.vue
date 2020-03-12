@@ -1,76 +1,114 @@
 <template>
     <div class="form__container column__start--center">
-        <label :for="inputName" class="form__label"  :class="`${labelClass} ${errors[type] ? 'form__label--error' : ''}`">{{ label }}</label>
+        <label
+            :for="inputName"
+            class="form__label"
+            :class="`${labelClass} ${getErrors(type) ? 'form__label--error' : ''}`
+        ">
+            {{ label }}
+        </label>
         <div class="form__box" :class="type === 'compare' ? 'form__box--twoColumns' : ''">
             <input
-                    v-if="type === 'text'"
-                    type="text"
-                    :placeholder="placeholder"
-                    :name="inputName"
-                    class="form__boxInput"
-                    :class="`${inputClass} ${errors[type] ? 'form__boxInput--error' : ''}`"
-                    v-model="text"
-                    @focus="input[type] = true"
-                    @blur="validateInput"
+                v-if="type === 'text'"
+                type="text"
+                :placeholder="placeholder"
+                :name="inputName"
+                :id="inputName"
+                :value="getText"
+                class="form__boxInput"
+                :class="`${inputClass} ${getErrors('text') ? 'form__boxInput--error' : ''}`"
+                @input="updateText"
+                @focus="setInput('text')"
+                @blur="validateInput"
             >
             <input
-                    v-if="type === 'currency'"
-                    type="text"
-                    :placeholder="placeholder"
-                    :name="inputName"
-                    class="form__boxInput"
-                    :class="`${inputClass} ${errors[type] ? 'form__boxInput--error' : ''}`"
-                    v-model="currency"
-                    @focus="input[type] = true"
-                    @blur="validateInput"
+                v-if="type === 'currency'"
+                type="text"
+                :placeholder="placeholder"
+                :name="inputName"
+                :id="inputName"
+                :value="getCurrency"
+                class="form__boxInput"
+                :class="`${inputClass} ${getErrors('currency') ? 'form__boxInput--error' : ''}`"
+                @input="updateCurrency"
+                @focus="setInput('currency')"
+                @blur="validateInput"
             >
             <input
-                    v-if="type === 'compare'"
-                    type="text"
-                    :placeholder="placeholder"
-                    :name="inputName"
-                    class="form__boxInput"
-                    :class="`${inputClass} ${errors[type] ? 'form__boxInput--error' : ''}`"
-                    v-model="compareMin"
-                    @focus="input[type] = true"
-                    @blur="validateInput"
+                v-if="type === 'compare'"
+                type="text"
+                :placeholder="placeholder"
+                :name="inputName"
+                :id="`${inputName}-0`"
+                class="form__boxInput"
+                :class="`${inputClass} ${getErrors('compare') ? 'form__boxInput--error' : ''}`"
+                :value="getCompareMin"
+                @input="updateCompareMin"
+                @focus="setInput('compare')"
+                @blur="validateInput"
             >
             <input
                 v-if="type === 'compare'"
                 class="form__boxInput"
                 :name="inputName"
-                :class="`${inputClass} ${errors[type] ? 'form__boxInput--error' : ''}`"
+                :id="`${inputName}-1`"
+                :class="`${inputClass} ${getErrors('compare') ? 'form__boxInput--error' : ''}`"
                 type="text"
-                v-model="compareMax"
-                @focus="input[type] = true"
+                :value="getCompareMax"
+                @input="updateCompareMax"
+                @focus="setInput('compare')"
                 @blur="validateInput"
                 :placeholder="placeholder"
             />
         </div>
         <textarea
-                v-if="type === 'textarea'"
-                :name="inputName"
-                rows="10"
-                :placeholder="placeholder"
-                class="form__textarea"
-                @click="setModal"
-                v-model="note">
+            v-if="type === 'textarea'"
+            :name="inputName"
+            :id="inputName"
+            :value="getNote"
+            rows="10"
+            :placeholder="placeholder"
+            class="form__textarea"
+            @click="setModal"
+            @input="updateNote"
+        >
         </textarea>
         <textarea
-                v-if="type === 'modal'"
-                :name="inputName"
-                rows="10"
-                :placeholder="placeholder"
-                class="form__textarea"
-                v-model="note">
+            v-if="type === 'modal'"
+            :name="inputName"
+            :id="inputName"
+            :value="getNote"
+            rows="10"
+            :placeholder="placeholder"
+            class="form__textarea"
+            @input="updateNote"
+        >
         </textarea>
-        <p v-if="errors[type]" class="form__error">{{ errors[type] }}</p>
+        <p v-if="getErrors(type)" class="form__error">{{ getErrors(type) }}</p>
     </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
-import { SET_ERROR, SET_MODAL, SET_NOTE, SET_INPUT, SET_TEXT, SET_CURRENCY, SET_COMPARE_MIN, SET_COMPARE_MAX } from 'Store/action-types'
+import { mapState, mapActions, mapGetters } from 'vuex'
+import {
+    SET_ERROR,
+    SET_MODAL,
+    SET_NOTE,
+    SET_INPUT,
+    SET_TEXT,
+    SET_CURRENCY,
+    SET_COMPARE_MIN,
+    SET_COMPARE_MAX
+} from 'Store/action-types'
+import {
+    GET_COMPARE_MAX,
+    GET_COMPARE_MIN,
+    GET_CURRENCY,
+    GET_ERRORS,
+    GET_INPUT,
+    GET_NOTE,
+    GET_TEXT
+} from "Store/getter-types";
 
 export default {
     name: "DataInput",
@@ -103,34 +141,15 @@ export default {
             'valueNotes',
             'isInputActive'
         ]),
-        text: {
-            get () { return this.valueText },
-            set (text) { this.setText(text) }
-        },
-        currency: {
-            get () { return this.isInputActive[this.type] ? this.valueCurrency.toString() : this.toCurrency(this.valueCurrency) },
-            set (currency) { this.setCurrency(this.toNormal(currency)) }
-        },
-        compareMin: {
-            get () { return this.isInputActive[this.type] ? this.valueCompareMin.toString() : this.toCurrency(this.valueCompareMin) },
-            set (valueMin) { this.setCompareMin(this.toNormal(valueMin)) }
-        },
-        compareMax: {
-            get () { return this.isInputActive[this.type] ? this.valueCompareMax.toString() : this.toCurrency(this.valueCompareMax) },
-            set (valueMax) { this.setCompareMax(this.toNormal(valueMax)) }
-        },
-        note: {
-            get () { return this.valueNotes },
-            set (note) { this.setNote(note) }
-        },
-        errors: {
-            get () { return this.inputErrors },
-            set (error) { this.setError(error) }
-        },
-        input: {
-            get () { return this.isInputActive },
-            set (status) { this.setInput(status) }
-        }
+        ...mapGetters({
+            getText: GET_TEXT,
+            getInput: GET_INPUT,
+            getNote: GET_NOTE,
+            getErrors: GET_ERRORS,
+            getCurrency: GET_CURRENCY,
+            getCompareMin: GET_COMPARE_MIN,
+            getCompareMax: GET_COMPARE_MAX
+        }),
     },
     methods: {
         ...mapActions({
@@ -143,26 +162,46 @@ export default {
             setInput: SET_INPUT,
             setNote: SET_NOTE
         }),
-        toCurrency(value) {
-            return value === '' ? '' : `$ ${parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")}`
+        updateText(e) {
+            this.setText(e.target.value)
+        },
+        updateNote(e) {
+            this.setNote(e.target.value)
+        },
+        updateCurrency(e) {
+            this.setCurrency(this.toNormal(e.target.value))
+        },
+        updateCompareMin(e) {
+            this.setCompareMin(this.toNormal(e.target.value))
+        },
+        updateCompareMax(e) {
+            this.setCompareMax(this.toNormal(e.target.value))
         },
         toNormal(value) {
             let newValue = value.replace(/[^\d\.]/g, "")
-            return isNaN(newValue) ? 0 : newValue
+            return isNaN(newValue)
+                ? 0
+                : newValue
         },
         validateInput() {
-            this.input[this.type] = ''
             switch (this.type) {
                 case 'text':
-                    this.valueText === '' ? this.errors[this.type] = this.error : this.errors[this.type] = ''
+                    this.valueText === ''
+                        ? this.setError({type: this.type, value: this.error})
+                        : this.setError({type: this.type, value: ''})
                     break
                 case 'currency':
-                    this.valueCurrency === '' ? this.errors[this.type] = this.error : this.errors[this.type] = ''
+                    this.valueCurrency === ''
+                        ? this.setError({type: this.type, value: this.error})
+                        : this.setError({type: this.type, value: ''})
                     break
                 case 'compare':
-                    this.valueCompareMin > this.valueCompareMax ? this.errors[this.type] = this.error : this.errors[this.type] = ''
+                    parseInt(this.valueCompareMin) > parseInt(this.valueCompareMax)
+                        ? this.setError({type: this.type, value: this.error})
+                        : this.setError({type: this.type, value: ''})
                     break
             }
+            this.setInput(this.type)
         }
     }
 }

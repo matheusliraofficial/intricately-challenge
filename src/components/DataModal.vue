@@ -4,7 +4,7 @@
             <form class="form column__center--center">
                 <DataInput placeholder="e.g. Good Tech Company" type="modal" inputName="additional-notes" label="ADDITIONAL NOTES" labelClass="modal__contentTitle"/>
                 <div class="modal__contentSubmit row__center--end">
-                    <button @click="setModal" class="form__button">Save</button>
+                    <button @click="updateModal" class="form__button">Save</button>
                 </div>
                 <img src="../images/close.png" alt="Close" title="Close" class="modal__contentClose" @click="setModal"/>
             </form>
@@ -22,7 +22,11 @@ export default {
     methods: {
       ...mapActions({
         setModal: SET_MODAL
-      })
+      }),
+      updateModal(e) {
+        e.preventDefault()
+        this.setModal()
+      }
     },
     components: {
         DataInput

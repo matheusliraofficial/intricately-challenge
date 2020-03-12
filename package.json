@@ -70,5 +70,25 @@
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.vue$": "vue-jest",
+      "^.+\\.js$": "babel-jest"
+    },
+    "modulePaths": ["src"],
+    "moduleDirectories": ["node_modules"],
+    "moduleNameMapper": {
+      "^Router(.*)$": "<rootDir>/src/router$1",
+      "^Store(.*)$": "<rootDir>/src/store$1",
+      "^Pages(.*)$": "<rootDir>/src/pages$1",
+      "^Components(.*)$": "<rootDir>/src/components$1",
+      "^Directives(.*)$": "<rootDir>/src/directives$1",
+      "^Filters(.*)$": "<rootDir>/src/filters$1",
+      "^Images(.*)$": "<rootDir>/src/mages$1",
+      "^Styles(.*)$": "<rootDir>/src/styles$1",
+      "^Plugins(.*)$": "<rootDir>/src/plugins$1",
+      "^Mixins(.*)$": "<rootDir>/src/mixins$1"
+    }
   }
 }
